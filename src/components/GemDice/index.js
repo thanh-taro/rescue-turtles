@@ -1005,6 +1005,11 @@ class GemDice extends Phaser.GameObjects.GameObject {
     const { scene } = this
     const row = targetGem.getRow()
     const column = targetGem.getColumn()
+    const { rows, columns } = this.getDiceConfig()
+
+    if (row === undefined || row === null) return
+    if (column === undefined || column === null) return
+
     const tiles = this.getTiles()
     let tweenConfig = {
       targets: targetGem,
@@ -1014,21 +1019,29 @@ class GemDice extends Phaser.GameObjects.GameObject {
       repeatDelay: 150
     }
 
-    scene.children.bringToTop(targetGem)
-
     if (moveDirection === 'left') {
+      if (column - 1 < 0) return
+
       const { x, size } = tiles[row][column - 1]
       tweenConfig.x = x + (size / 6)
     } else if (moveDirection === 'right') {
+      if (column + 1 >= columns) return
+
       const { x, size } = tiles[row][column + 1]
       tweenConfig.x = x - (size / 6)
     } else if (moveDirection === 'up') {
+      if (row - 1 < 0) return
+
       const { y, size } = tiles[row - 1][column]
       tweenConfig.y = y + (size / 6)
     } else {
+      if (row + 1 >= rows) return
+
       const { y, size } = tiles[row + 1][column]
       tweenConfig.y = y - (size / 6)
     }
+
+    scene.children.bringToTop(targetGem)
 
     const tweenOnSuggestion = scene.tweens.add(tweenConfig)
     this.tweenOnSuggestion = tweenOnSuggestion

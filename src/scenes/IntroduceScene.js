@@ -43,7 +43,7 @@ class IntroduceScene extends Phaser.Scene {
         fontSizePercent: 0.025
       }
     })
-    // this.things.startGame.setAlpha(0)
+    this.things.startGame.setAlpha(0)
     this.time.delayedCall(60000, () => this.things.startGame.setAlpha(1))
   }
 
