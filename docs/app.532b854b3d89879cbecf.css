@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url(fonts/Quicksand-Medium.cfa0037131e1498b816cf8b918b84b02.woff2) format('woff2'), url(fonts/Quicksand-Medium.5e905d75c8b0e95ca6ec187c02de4305.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url(fonts/Quicksand-Light.22c177f55fbf6782c621aa03a648dc3b.woff2) format('woff2'), url(fonts/Quicksand-Light.e2abecc0fa89dbc58a1edff3fad442e7.woff) format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url(fonts/Quicksand-Bold.bdab5ac86824781525d254e96642594d.woff2) format('woff2'), url(fonts/Quicksand-Bold.6e58e47acd439e38334b1d68a1466eb1.woff) format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url(fonts/Quicksand-Regular.d74b1b8a5915a18f646777d220df2fb6.woff2) format('woff2'), url(fonts/Quicksand-Regular.293ca0a45860ec934e691be14a403c65.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+#game-panel {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
