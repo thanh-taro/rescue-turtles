@@ -1,0 +1,17 @@
+* {
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+#game-panel {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}

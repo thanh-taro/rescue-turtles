@@ -1,0 +1,49 @@
+{
+  "name": "rescue-turtle",
+  "version": "1.0.0",
+  "description": "Facebook Instant Game: Rescue Turtle",
+  "private": true,
+  "scripts": {
+    "test": "eslint .",
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.production.config.js",
+    "build-fbinstant": "BUILD_TYPE=fbinstant webpack --config webpack.production.config.js"
+  },
+  "keywords": [
+    "rescue",
+    "turtle"
+  ],
+  "author": "Nguyen Tri Thanh <adamnguyen.itdn@gmail.com>",
+  "license": "ISC",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^2.0.2",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "file-loader": "^3.0.1",
+    "fontfaceobserver": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "phaser": "^3.18.1",
+    "phaser-plugin-update": "^2.0.2",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

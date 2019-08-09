@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rescue Turtle</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+</head>
+
+<body style="background-color: #000000">
+    <div id="game-panel"></div>
+    <script type="text/javascript">BUILD_TYPE='<%= type %>';</script>
+    <%if (type === 'fbinstant') { %>
+        <script src="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
+    <% } %>
+</body>
+
+</html>
