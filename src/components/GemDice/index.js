@@ -18,6 +18,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
 
     scene.scale.on('resize', this.onResize, this)
     scene.input.on('gameobjectdown', this.onSelectGem, this)
+    scene.input.on('gameobjectup', this.onDeselectGem, this)
     scene.input.on('gameobjectmove', this.onSwipe, this)
     scene.updates.add(this)
 
@@ -34,6 +35,8 @@ class GemDice extends Phaser.GameObjects.GameObject {
   onSelectGem (pointer, gem, event) {
     event.stopPropagation()
 
+    this.setData('canSwipe', false)
+
     if (this.tweenOnSuggestion) {
       this.tweenOnSuggestion.stop(0)
       this.tweenOnSuggestion = null
@@ -49,6 +52,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
       this.tweenOnSelect.stop(0)
       delete this.tweenOnSelect
       gem.setSelected(false)
+      this.oldSelected.setSelected(false)
       this.oldSelected = null
       delete this.oldSelected
 
@@ -67,8 +71,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
         repeat: -1
       })
 
-      const { downX, downY } = pointer
-      this.setData('pointerDown', { downX, downY })
+      this.setData('canSwipe', true)
 
       return
     }
@@ -102,6 +105,8 @@ class GemDice extends Phaser.GameObjects.GameObject {
   onSwipe (pointer, gem, event) {
     event.stopPropagation()
 
+    if (!this.getData('canSwipe')) return
+
     if (this.tweenOnSuggestion) {
       this.tweenOnSuggestion.stop(0)
       this.tweenOnSuggestion = null
@@ -117,6 +122,11 @@ class GemDice extends Phaser.GameObjects.GameObject {
     this.oldSelected.setSelected(false)
     this.oldSelected = null
     delete this.oldSelected
+  }
+
+  onDeselectGem (pointer, gem, event) {
+    event.stopPropagation()
+    this.setData('canSwipe', false)
   }
 
   destroy () {
