@@ -51,7 +51,7 @@ const storyLines = [
   },
   {
     image: null,
-    storyLine: 'Trò chơi kể về 3 chú rùa biển bị mắc kẹt trong rác thải khiến chú không thể tìm được đường về nhà. Trong thời gian 3 phút, bạn hãy dọn thật nhiều rác thải để giúp 3 chú rùa cùng trở về nhà nhé!',
+    storyLine: 'Có 3 chú rùa biển bị mắc kẹt trong rác thải khiến chúng không thể tìm được đường về nhà. Trong thời gian 3 phút bạn hãy dọn thật nhiều rác thải để giúp 3 chú nhé!',
     duration: 10
   }
 ]

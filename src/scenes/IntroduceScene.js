@@ -43,6 +43,8 @@ class IntroduceScene extends Phaser.Scene {
         fontSizePercent: 0.025
       }
     })
+    // this.things.startGame.setAlpha(0)
+    this.time.delayedCall(60000, () => this.things.startGame.setAlpha(1))
   }
 
   createIntroduceStory () {
@@ -52,7 +54,7 @@ class IntroduceScene extends Phaser.Scene {
         originY: 1,
         scale: {
           percentX: 0.04,
-          percentY: 0.93,
+          percentY: 0.96,
           fontSizePercent: 0.04
         }
       },
@@ -61,7 +63,7 @@ class IntroduceScene extends Phaser.Scene {
         originY: 1,
         scale: {
           percentX: 0.5,
-          percentY: 0.93
+          percentY: 1
         }
       }
     })

@@ -22,7 +22,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
     scene.input.on('gameobjectmove', this.onSwipe, this)
     scene.updates.add(this)
 
-    scene.time.delayedCall(1100, () => this.setGameState('running'))
+    scene.time.delayedCall(1500, () => this.setGameState('running'))
   }
 
   onResize (gameSize, baseSize, displaySize, resolution) {
@@ -80,6 +80,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
     if (this.swapGems(gem, this.oldSelected)) {
       this.tweenOnSelect.stop(0)
       delete this.tweenOnSelect
+      gem.setSelected(false)
       this.oldSelected.setSelected(false)
       this.oldSelected = null
       delete this.oldSelected
@@ -119,6 +120,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
 
     this.tweenOnSelect.stop(0)
     delete this.tweenOnSelect
+    gem.setSelected(false)
     this.oldSelected.setSelected(false)
     this.oldSelected = null
     delete this.oldSelected
@@ -730,8 +732,7 @@ class GemDice extends Phaser.GameObjects.GameObject {
       }
     }
 
-    if (this.getGameState() === 'running') scene.time.delayedCall(maxAnimationTime + 30, () => this.run())
-    else this.setDiceBusy(false)
+    scene.time.delayedCall(maxAnimationTime + 30, () => this.run())
   }
 
   swapGems (gemA, gemB, noCheckMatch = false) {
@@ -749,7 +750,10 @@ class GemDice extends Phaser.GameObjects.GameObject {
     const gemBRow = gemB.getRow()
     const gemBColumn = gemB.getColumn()
 
-    if (Math.abs(gemARow - gemBRow) > 1 || Math.abs(gemAColumn - gemBColumn) > 1 || (Math.abs(gemARow - gemBRow) === 1 && Math.abs(gemAColumn - gemBColumn) === 1)) return false
+    if (Math.abs(gemARow - gemBRow) > 1 || Math.abs(gemAColumn - gemBColumn) > 1 || (Math.abs(gemARow - gemBRow) === 1 && Math.abs(gemAColumn - gemBColumn) === 1)) {
+      this.setDiceBusy(false)
+      return false
+    }
 
     gems[gemARow][gemAColumn] = gemB
     gems[gemBRow][gemBColumn] = gemA
